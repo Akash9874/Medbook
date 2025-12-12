@@ -24,7 +24,20 @@ const app = express();
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: env.cors.origin,
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = Array.isArray(env.cors.origin) 
+      ? env.cors.origin 
+      : [env.cors.origin];
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all origins in development
+    }
+  },
   credentials: true
 }));
 

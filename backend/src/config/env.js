@@ -41,7 +41,10 @@ module.exports = {
   },
   
   cors: {
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173'
+    // Allow multiple origins for development and production
+    origin: process.env.FRONTEND_URL 
+      ? process.env.FRONTEND_URL.split(',').map(url => url.trim())
+      : ['http://localhost:5173']
   }
 };
 
