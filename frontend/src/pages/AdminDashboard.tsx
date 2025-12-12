@@ -52,7 +52,7 @@ export function AdminDashboard() {
   const handleExpirePending = async () => {
     try {
       const response = await bookingApi.expirePending();
-      toast.success(response.message);
+      toast.success(response.message || 'Pending bookings expired');
       fetchData();
     } catch (error) {
       toast.error('Failed to expire pending bookings');
@@ -235,7 +235,6 @@ function DoctorsTab({
 }
 
 function SlotsTab({
-  doctors,
   onAddSlot,
 }: {
   doctors: Doctor[];

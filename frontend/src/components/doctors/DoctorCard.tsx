@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FiClock, FiDollarSign, FiAward, FiCalendar } from 'react-icons/fi';
+import { FiDollarSign, FiAward, FiCalendar } from 'react-icons/fi';
 import type { Doctor } from '../../types';
 
 interface DoctorCardProps {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { format, parseISO, addDays } from 'date-fns';
 import { FiArrowLeft, FiCalendar, FiClock } from 'react-icons/fi';
